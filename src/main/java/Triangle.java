@@ -1,36 +1,36 @@
 public class Triangle extends Figure{
 
-    private long[] sides = new long[3];
+    private double side1;
+    private double side2;
+    private double side3;
 
-    public long Perimeter() {
-        return sides[0] + sides[1] + sides[2];
+    public Triangle(double side1, double side2, double side3, Colors color) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+        setColor(color);
     }
 
-    public long Area() {
-        return (int)Math.sqrt((Perimeter() / 2) * (Perimeter()/2 - sides[0]) *
-                (Perimeter()/2 - sides[1]) * (Perimeter()/2 - sides[2]));
+    public Triangle() {
+        setRandomColor();
+        side1 = Math.random() * modifier1 + 1;
+        side2 = Math.random() * modifier1 + 1;
+        side3 = Math.random() * modifier1 + 1;
+
+    }
+
+    public double Perimeter() {
+        return side1 + side2 + side3;
+    }
+
+    public double Area() {
+        return Math.sqrt((Perimeter() / 2) * (Perimeter()/2 - side1) *
+                (Perimeter()/2 - side2) * (Perimeter()/2 - side3));
     }
 
     public void Print() {
         System.out.println("Я треугольник, я треугольник, самый крутой многоугольник! Периметр: "
-                + Perimeter() + "; Площадь: " + Area() + "; Стороны: " + sides[0] + " " + sides[1] + " "
-                + sides[2] + " " + "; Цвет: " + getColor());
+                + Perimeter() + "; Площадь: " + Area() + "; Стороны: " + side1 + " " + side2 + " "
+                + side3 + " " + "; Цвет: " + getColor());
     }
-
-    public Triangle(long[] sides, String color) {
-        for(int i = 0; i < sides.length; i++) {
-            this.sides[i] = sides[i];
-        }
-        this.setColor(color);
-    }
-
-    public Triangle() {
-        this.setRandomColor();
-        sides[0] = (int)(Math.random() * 100 + 1);
-        sides[1] = (int)(Math.random() * 100 + 1);
-        sides[2] = (int)(Math.random() * 100 + 1);
-
-    }
-
-
 }

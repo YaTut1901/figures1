@@ -1,22 +1,22 @@
 public class Square extends Figure{
 
-    private long side;
+    private double side;
 
-    public Square(long side, String color) {
+    public Square(double side, Colors color) {
         this.side = side;
-        this.setColor(color);
+        setColor(color);
     }
 
     public Square() {
-        this.side = (int)(Math.random() * 100 + 1);
-        this.setRandomColor();
+        side = Math.random() * modifier1 + 1;
+        setRandomColor();
     }
 
-    public long Perimeter() {
-        return side * 4;
+    public double Perimeter() {
+        return side * modifier2;
     }
 
-    public long Area() {
+    public double Area() {
         return side * side;
     }
 

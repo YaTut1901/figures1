@@ -1,25 +1,25 @@
-
+import java.util.Random;
 
 public abstract class Figure {
 
-    private String color;
+    public static int modifier1 = 100;
+    public static int modifier2 = 4;
+    private Colors color;
 
-    public abstract long Perimeter();
+    public abstract double Perimeter();
 
-    public abstract long Area();
+    public abstract double Area();
 
-    public String getColor() {
+    public Colors getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Colors color) {
         this.color = color;
     }
 
     public void setRandomColor() {
-        String[] colorsArray = new String[]{"RED", "BLUE", "YELLOW", "BLACK", "GRAY",
-                "BROWN", "WHITE", "PINKY", "GREEN", "GOLDEN"};
-        this.color = colorsArray[(int)(Math.random() * 10)];
+        color = Colors.values()[new Random().nextInt(Colors.values().length)];
     }
 
     public abstract void Print();
